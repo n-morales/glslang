@@ -18,3 +18,5 @@ out/
 third_party/
 buildtools/
 tools/
+
+CMakeUserPresets.json

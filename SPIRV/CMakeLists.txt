@@ -97,8 +97,7 @@ if(ENABLE_OPT)
     )
     target_link_libraries(SPIRV PRIVATE MachineIndependent SPIRV-Tools-opt)
     target_include_directories(SPIRV PUBLIC
-        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/../External>
-        $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}/External>)
+        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/../External>)
 else()
     target_link_libraries(SPIRV PRIVATE MachineIndependent)
 endif()
@@ -129,10 +128,10 @@ if(ENABLE_GLSLANG_INSTALL)
     endif()
 
     if (ENABLE_SPVREMAPPER)
-        install(EXPORT SPVRemapperTargets DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake)
+        install(EXPORT SPVRemapperTargets DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/glslang)
     endif()
 
-    install(EXPORT SPIRVTargets DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake)
+    install(EXPORT SPIRVTargets DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/glslang)
 
     install(FILES ${HEADERS} ${SPVREMAP_HEADERS} DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/glslang/SPIRV/)
 endif()

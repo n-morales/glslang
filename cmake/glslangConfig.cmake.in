@@ -1,0 +1,19 @@
+@PACKAGE_INIT@
+
+include(${CMAKE_CURRENT_LIST_DIR}/glslangTargets.cmake)
+include(${CMAKE_CURRENT_LIST_DIR}/glslangValidatorTargets.cmake OPTIONAL)
+include(${CMAKE_CURRENT_LIST_DIR}/HLSLTargets.cmake OPTIONAL)
+include(${CMAKE_CURRENT_LIST_DIR}/OGLCompilerTargets.cmake OPTIONAL)
+include(${CMAKE_CURRENT_LIST_DIR}/OSDependentTargets.cmake OPTIONAL)
+include(${CMAKE_CURRENT_LIST_DIR}/SPIRVTargets.cmake OPTIONAL)
+include(${CMAKE_CURRENT_LIST_DIR}/SPVRemapperTargets.cmake OPTIONAL)
+include(${CMAKE_CURRENT_LIST_DIR}/glslang-default-resource-limitsTargets.cmake OPTIONAL)
+include(${CMAKE_CURRENT_LIST_DIR}/spirv-remapTargets.cmake OPTIONAL)
+
+include(CMakeFindDependencyMacro)
+
+
+find_dependency(Threads)
+if (@ENABLE_OPT@)
+    find_dependency(SPIRV-Tools-opt)
+endif()
